@@ -44,11 +44,16 @@ class Board
         
     end
 
-    def print
+    def render
         @grid.each do |row|
             puts row.join(" ")
         end
     end
+    def won? 
+        Card.cards.all?{|card| card==face_up}
+    end
+    def reveal(guessed_pos)
+        if @grid[guessed_pos] != 
 
 
 
