@@ -14,15 +14,18 @@ class Card
 
     def reveal  
          @face_up = true 
-         puts face_value
+        #  puts face_value
     end
     def ==(card2)
         self.face_value== card2.face_value
     end 
-
     
-    # def to_s 
-    #     @face_value.is_a?(String)
-    # end
+    def to_s 
+        if @face_up == true
+            return @face_value
+        else
+            return "?"
+        end
+    end
 
 end

@@ -23,25 +23,54 @@ class Board
     end
 
     def populate
-        count = 0
-        while count < pairs
-            row = rand(0...@grid.length)
-            col = rand(0...@grid.length)
-            row2 = rand(0...@grid.length)
-            col2= rand(0...@grid.length)
-            pos = [row, col]
-            pos2 = [row2, col2]
-            random_value = ("a".."z").to_a.sample
+        # count = 0
+        # while count < pairs
+        #     row = rand(0...@grid.length)
+        #     col = rand(0...@grid.length)
+        #     row2 = rand(0...@grid.length)
+        #     col2= rand(0...@grid.length)
+        #     pos = [row, col]
+        #     pos2 = [row2, col2]
+        #     random_value = ("a".."z").to_a.sample
 
-            if self[pos] == nil && self[pos2] == nil && pos2 != pos
-                self[pos]= (random_value)
-                self[pos2]= (random_value)
-                count += 1
+        #     if self[pos] == nil && self[pos2] == nil && pos2 != pos
+        #         self[pos]= (random_value)
+        #         self[pos2]= (random_value)
+        #         count += 1
+        #     end
+        # end
+        
+        alpha = ("a".."z").to_a
+        z = alpha += alpha
+        shuffled = (z[0..@pairs].to_a).shuffle
+
+        shuffle.map do |el|
+            el = Card.new(el)
+            @grid.each do |row|
+                row.each do |v|
+                    v = el
+                end
             end
-
-        
         end
-        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     end
 
     def render
@@ -50,7 +79,7 @@ class Board
         end
     end
     def won? 
-        Card.cards.all?{|card| card==face_up}
+        @grid.flatten.all?{ |card| card.face_up == true}
     end
     def reveal(guessed_pos)
         if @grid[guessed_pos] != 
