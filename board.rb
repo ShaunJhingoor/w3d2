@@ -2,17 +2,29 @@ require_relative "card.rb"
 
 class Board
 
-    attr_reader :num_pairs
+    attr_reader :num_pairs, :size
 
 
-    def initialize(num_pairs)
-        @num_pairs - num_pairs
-        @grid = Array.new(num_pairs) {Array.new (num_pairs)}
+    def initialize(num)
+        if num.even? 
+            raise "Please enter even number"
+        end
+        @size=num * num
+        @pair=@size / 2 
+        @grid = Array.new(num) {Array.new (num)}
+    end
+    def [](pos)
+        row, col=pos 
+        @grid[row][col]
+    end
+    def []=(pos,val)
+        row, col=pos 
+        @grid[row][col]=val 
     end
 
     def populate
-        random_cards = (0..num_pairs)
-
+        random_cards = 
+        row=
     end
 
 

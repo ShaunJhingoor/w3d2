@@ -1,31 +1,21 @@
 class Card 
-    attr_reader :face_value, :face_direction
+    attr_reader :face_value
 
-    def initialize (face_value, face_direction)
+    def initialize (face_value)
         @face_value = face_value
-        @face_direction = face_direction
+        @face_up = false
     end
 
     def hide 
-        if @face_direction == false
-            return true
-        end
-        false   
+        @face_up=false 
     end
 
     def reveal  
-        if @face_direction == true
-            return true
-        end
-        false   
+         @face_up=true 
+         puts face_value
     end
-
-    
-    
-
-
-
-
-
+    def to_s 
+        @face_value.is_a?(String)
+    end
 
 end
