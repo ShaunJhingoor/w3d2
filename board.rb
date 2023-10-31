@@ -44,7 +44,7 @@ class Board
         z = alpha += alpha
         shuffled = (z[0..@pairs].to_a).shuffle
 
-        shuffle.map do |el|
+        shuffled.map do |el|
             el = Card.new(el)
             @grid.each do |row|
                 row.each do |v|
@@ -52,25 +52,6 @@ class Board
                 end
             end
         end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     end
 
     def render
@@ -81,8 +62,8 @@ class Board
     def won? 
         @grid.flatten.all?{ |card| card.face_up == true}
     end
-    def reveal(guessed_pos)
-        if @grid[guessed_pos] != 
+    # def reveal(guessed_pos)
+    #     if @grid[guessed_pos] != 
 
 
 
